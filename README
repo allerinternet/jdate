@@ -1,0 +1,52 @@
+<?php
+/**
+ * This is a file with examples for JDate
+ * 
+ * JDate defaults to return date in YYYY-MM-DD format
+ * 
+ */
+require("JDate.class.php");
+
+// This function shows how the different methods can be used.
+// Please see below function how we create the object and set date.
+function testit($d) {
+	print "The date: ".$d->getDate().PHP_EOL;	// The date in 2011-01-31 format
+	print "The date in unixtime: ".$d->getDate(TRUE).PHP_EOL; // The date in 1296428400 (unixtime) format
+	print "Year: ".$d->getYear().PHP_EOL;
+	print "Month: ".$d->getMonth(true).PHP_EOL; // true means that we don't want leading zero
+	print "Day: ".$d->getDay().PHP_EOL;
+	print "Week: ".$d->getWeek(true).PHP_EOL; // true means that we don't want leading zero
+	print "Monday: ".$d->getMonday().PHP_EOL;
+	print "Tuesday: ".$d->getTuesday().PHP_EOL;
+	print "Wednesday: ".$d->getWednesday().PHP_EOL;
+	print "Thursday: ".$d->getThursday().PHP_EOL;
+	print "Friday: ".$d->getFriday().PHP_EOL;
+	print "Saturday: ".$d->getSaturday().PHP_EOL;
+	print "Sunday: ".$d->getSunday().PHP_EOL;	
+	print "======".PHP_EOL;
+	
+}
+
+// Just create the JDate object, using systems local time
+$d = new JDate();
+testit($d);
+unset($d);
+
+// Set the date to 2011-01-31
+$d = new JDate("2011-01-31");
+testit($d);
+unset($d);
+
+// Set the date to 2011-02-01 in unixtime format
+$d = new JDate(1296549671);
+testit($d);
+unset($d);
+
+// Specify a week number, date always defaults to the monday in that week
+$d = new JDate();
+$d->setDateFromWeek(2011, 8);
+testit($d);
+unset($d);
+
+
+
