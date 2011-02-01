@@ -3,7 +3,7 @@
 /**
  * A class for handling dates
  *
- * @author Jonas Bjšrk <jonas.bjork@aller.se>
+ * @author Jonas Bjork <jonas.bjork@aller.se>
  * @author Kristian Erendi <kristian.erendi@aller.se>
  * 
  * @copyright Aller media AB - 2011
