@@ -108,7 +108,18 @@ class JDate {
 	public function reset() {
 		$this->unixtime = $this->orig_unixtime;
 	}
-	
+
+
+  /**
+   * Returns the weekday name of the current date
+   * @return string weekday name
+   */
+  public function getWeekday() {
+    $wd = getdate($this->unixtime);
+    return $wd['weekday'];
+  }
+
+
 	/**
 	 * Private helper method for getMonday, getTuesday..
 	 * 
@@ -116,7 +127,7 @@ class JDate {
 	 * @param boolean $unix decides if we want the return in unixtime format or not
 	 * @return string|int with date in YYYY-MM-DD or UNIXTIME format
 	 */
-	private function getWeekday($day, $unix = FALSE) {
+	private function _getWeekday($day, $unix = FALSE) {
 		$day = $day - 1;
 		if (date("w", $this->unixtime)==1) {
 			$monday = $this->unixtime;		
@@ -138,7 +149,7 @@ class JDate {
 	 * @return string|int with date in YYYY-MM-DD or UNIXTIME format
 	 */	
 	public function getMonday($unix = FALSE) {
-		return $this->getWeekday(1, $unix);
+		return $this->_getWeekday(1, $unix);
 	}
 	
 	/**
@@ -148,7 +159,7 @@ class JDate {
 	 * @return string|int with date in YYYY-MM-DD or UNIXTIME format
 	 */
 	public function getTuesday($unix = FALSE) {
-		return $this->getWeekday(2, $unix);
+		return $this->_getWeekday(2, $unix);
 	}
 	
 	/**
@@ -158,7 +169,7 @@ class JDate {
 	 * @return string|int with date in YYYY-MM-DD or UNIXTIME format
 	 */
 	public function getWednesday($unix = FALSE) {
-		return $this->getWeekday(3, $unix);
+		return $this->_getWeekday(3, $unix);
 	}
 	
 	/**
@@ -168,7 +179,7 @@ class JDate {
 	 * @return string|int with date in YYYY-MM-DD or UNIXTIME format
 	 */
 	public function getThursday($unix = FALSE) {
-		return $this->getWeekday(4, $unix);
+		return $this->_getWeekday(4, $unix);
 	}
 	
 	/**
@@ -178,7 +189,7 @@ class JDate {
 	 * @return string|int with date in YYYY-MM-DD or UNIXTIME format
 	 */
 	public function getFriday($unix = FALSE) {
-		return $this->getWeekday(5, $unix);
+		return $this->_getWeekday(5, $unix);
 	}
 	
 	/**
@@ -188,7 +199,7 @@ class JDate {
 	 * @return string|int with date in YYYY-MM-DD or UNIXTIME format
 	 */
 	public function getSaturday($unix = FALSE) {
-		return $this->getWeekday(6, $unix);
+		return $this->_getWeekday(6, $unix);
 	}
 	
 	/**
@@ -198,7 +209,7 @@ class JDate {
 	 * @return string|int with date in YYYY-MM-DD or UNIXTIME format
 	 */
 	public function getSunday($unix = FALSE) {
-		return $this->getWeekday(7, $unix);
+		return $this->_getWeekday(7, $unix);
 	}
 	
 	/**
